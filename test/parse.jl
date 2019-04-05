@@ -295,7 +295,7 @@ end
         end
         for r in (-1.0,-1e-9,Inf,-Inf,NaN), i in (-1.0,-1e-9,Inf,NaN)
             n = Complex(r, sign == '+' ? i : -i)
-            s = string(s1, r, s2, sign, s3, i, Im, s4)
+            s = lowercase(string(s1, r, s2, sign, s3, i, Im, s4))
             @test n === parse(ComplexF64, s)
             @test Complex(r) === parse(ComplexF64, string(s1, r, s2))
             @test Complex(0,i) === parse(ComplexF64, string(s3, i, Im, s4))
