@@ -754,7 +754,7 @@ static jl_value_t *get_fieldtype(jl_value_t *t, jl_value_t *f, int dothrow)
         }
         int nf = jl_field_count(st);
         if (nf > 0 && field_index >= nf-1 && st->name == jl_tuple_typename) {
-            jl_value_t *ft = jl_field_type(st, nf-1);
+            jl_value_t *ft = jl_tfield(st, nf-1);
             if (jl_is_vararg_type(ft))
                 return jl_unwrap_vararg(ft);
         }
